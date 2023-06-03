@@ -5,11 +5,11 @@
 def checkout(skus):
 
     price_table = {
-        'A': {'price': 50, 'offer': [{'quantity': 3, 'offer_price': 130}, {'quantity': 5, 'offer_price': 200}]},
-        'B': {'price': 30, 'offer': {'quantity': 2, 'offer_price': 45}},
+        'A': {'price': 50, 'offer': [{'quantity': 3, 'price': 130}, {'quantity': 5, 'price': 200}]},
+        'B': {'price': 30, 'offer': [{'quantity': 2, 'price': 45}]},
         'C': {'price': 20},
         'D': {'price': 15},
-        'E': {'price': 40, 'offer': {'quantity': 2, 'free_item': 'B'}},
+        'E': {'price': 40, 'offer': [{'quantity': 2, 'free_item': 'B'}]},
     }
 
     item_counts = {}
@@ -26,13 +26,13 @@ def checkout(skus):
     total_price = 0
 
     for product, count in item_counts.items():
-        item_price = price_table[product]["offer_price"]
+        item_price = price_table[product]["price"]
         if "offer" in price_table[product]:
             offer = price_table[product]['offer']
-            offer.sort(key = lambda x: x.get("quantity", 0), reverse=True)
+            offer.sort(key = lambda x: x.get("quantity", 0))
 
             for offer in price_table[product]:
-                if "quantity" in offer and "offer_price" in offer:
+                if "quantity" in offer and "price" in offer:
                     offer_quantity = offer["quantity"]
                     offer_price = offer["price"]
                     q, r = divmod(count, offer_quantity)
@@ -50,4 +50,5 @@ def checkout(skus):
         total_price += count * item_price
 
     return total_price
+
 
