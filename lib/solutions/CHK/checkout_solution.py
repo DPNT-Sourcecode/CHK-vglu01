@@ -4,6 +4,7 @@
 # skus = unicode string
 def checkout(skus):
 
+
     price_table = {
         'A': {'price': 50, 'special_offer': [(5, 200), (3, 130)]},
         'B': {'price': 30, 'special_offer': [(2, 45)]},
@@ -22,24 +23,20 @@ def checkout(skus):
         else:
             return -1
 
-    print(item_counts)
+
     for item, count in item_counts.items():
         if 'special_offer' in price_table[item]:
             special_offers = price_table[item]['special_offer']
             for offer in special_offers:
                 offer_qty, offer_value = offer
-                if type(offer_value) != str:
-                    while count >= offer_qty:
-                    # if type(offer_value) != str:
-                    #     total_price += price_table[offer_value]["price"]
-                    # else:
+                while count >= offer_qty:
+                    if type(offer_value) == str:
+                        total_price += price_table[offer_value]["price"]
+                    else:
                         total_price += offer_value
-
                     count -= offer_qty
-        print(item, total_price, count, price_table[item]['price'])
+            print(special_offers)
         total_price += count * price_table[item]['price']
-        print(total_price)
-
 
 
         if item in free_items:
