@@ -58,9 +58,3 @@ def checkout(skus):
                     free_items[offer_item] = item_counts[offer_item] // offer_qty
 
     return total_price
-
-
-
-
-
-
