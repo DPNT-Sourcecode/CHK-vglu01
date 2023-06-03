@@ -48,9 +48,10 @@ def checkout(skus):
                     count -= max_free_items * offer_quantity
                     total_price += max_free_items * price_table[free_item]['price']
 
-        total_price += count * item_price
+            total_price += count * item_price
 
     return total_price
+
 
 
 
