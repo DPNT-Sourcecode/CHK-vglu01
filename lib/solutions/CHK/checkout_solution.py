@@ -29,11 +29,8 @@ def checkout(skus):
             offer_quantity = offer['quantity']
             if product == "E" and offer['free_item'] in item_counts:
                 free_item_count = item_counts[offer["free_item"]]
-                free_item_count -= count
-                if free_item_count < 0:
-                    free_item_count = 0
-                item_counts[offer["free_item"]] = free_item_count
-
+                offer_applicable_count = min(count, free_item_count * offer_quantity)
+                item_counts[offer["free_item"]] -= offer_applicable_count
 
             if product == "B" and "offer" in price_table[product]:
                 offer = price_table[product]["offer"]
@@ -58,6 +55,7 @@ def checkout(skus):
         total_price += count * price_table[product]["price"]
 
     return total_price
+
 
 
 
