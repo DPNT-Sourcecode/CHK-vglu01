@@ -12,4 +12,8 @@ class TestCheckout():
     def test_checkout_with_free_item_offer(self):
         assert checkout_solution.checkout('E') == 40
 
+    def test_checkout_2(self):
+        assert checkout_solution.checkout('ABCDE') == 165
+
+
 
