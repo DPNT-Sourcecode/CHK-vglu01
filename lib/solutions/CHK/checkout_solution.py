@@ -44,10 +44,8 @@ def checkout(skus):
                             total_price += offer_value
                             count -= offer_qty
 
-                        print("this is it", total_price)
                         if count == 0:
-                            count = 1
-                            price_table[item]['price'] = total_price
+                            price_table[item]['price'] = 0
 
                 if offer_value in item_counts:
                     item_counts[offer_value] = 0
