@@ -30,9 +30,9 @@ def checkout(skus):
             if product == "E" and offer['free_item'] in item_counts:
                 free_item_count = item_counts[offer["free_item"]]
                 print(free_item_count, count)
-                free_item_count -= count
-                if free_item_count < 0:
-                    free_item_count = 0
+                free_item_count += count
+                # if free_item_count < 0:
+                #     free_item_count = 0
                 item_counts[offer["free_item"]] = free_item_count
 
 
@@ -58,6 +58,7 @@ def checkout(skus):
         total_price += count * price_table[product]["price"]
 
     return total_price
+
 
 
 
