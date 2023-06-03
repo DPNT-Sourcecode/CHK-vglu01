@@ -5,11 +5,11 @@
 def checkout(skus):
 
     price_table = {
-        'A': {'price': 50, 'offer': [{'quantity': 3, 'price': 130}, {'quantity': 5, 'price': 200}]},
-        'B': {'price': 30, 'offer': [{'quantity': 2, 'price': 45}]},
+        'A': {'price': 50, 'offers': [{'quantity': 3, 'offer_price': 130}, {'quantity': 5, 'offer_price': 200}]},
+        'B': {'price': 30, 'offer': {'quantity': 2, 'offer_price': 45}},
         'C': {'price': 20},
         'D': {'price': 15},
-        'E': {'price': 40, 'offer': [{'quantity': 2, 'free_item': 'B'}]}
+        'E': {'price': 40, 'offer': {'quantity': 2, 'free_item': 'B'}}
     }
 
     item_counts = {}
@@ -26,33 +26,28 @@ def checkout(skus):
     total_price = 0
 
     for product, count in item_counts.items():
-        item_price = price_table[product]["price"]
+        # item_price = price_table[product]["price"]
 
         if "offer" in price_table[product]:
             offers = price_table[product]['offer']
-            offers.sort(key = lambda x: x.get("quantity", 0), reverse=True)
-
             for offer in offers:
-                if "quantity" in offer and "price" in offer:
-                    offer_quantity = offer["quantity"]
-                    offer_price = offer["price"]
-                    q, r = divmod(count, offer_quantity)
-                    total_price += q * offer_price
-                    count = r
+                offer_quantity = offer["quantity"]
+                offer_price = offer["offer_price"]
 
-                if "quantity" in offer and "free_item" in offer:
-                    offer_quantity = offer["quantity"]
-                    free_item = offer["free_item"]
-                    free_item_count = item_counts.get(free_item, 0)
+                while count >= offer_quantity:
+                    count -= offer_quantity
 
-                    max_free_items = min(count // offer_quantity, free_item_count)
+        if "offer" in price_table[product]:
+            offer = price_table[product]["offer"]
+            offer_quantity = offer["quantity"]
+            if product == "E" and offer["free_item"] in item_counts:
+                free_item_count = item_counts[offer["free_item"]]
+                offer_applicable_count = min(count // offer_quantity, free_item_count)
+                item_counts[offer["free_item"]] -= offer_applicable_count
+                count -= offer_applicable_count * offer_quantity
 
-                    count -= max_free_items * offer_quantity
-                    total_price += max_free_items * item_price
-                    print(total_price)
-
-
-        total_price += count * item_price
+        total_price += count * price_table[product]["price"]
 
     return total_price
+
 
