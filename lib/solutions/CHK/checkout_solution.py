@@ -1,3 +1,4 @@
+import math
 
 
 # noinspection PyUnusedLocal
@@ -86,9 +87,10 @@ def checkout(skus):
                 #B:2, E:4
                 if not isinstance(offer_value, str):
 
-                    remaining = floor(count / offer_qty)
-                    print("here1", count, offer_qty, remaining)
-                    if remaining == 1:
+                    remaining = count / offer_qty
+                    print("here", count, offer_qty, remaining)
+                    if remaining == 1.0:
+                        print("here1")
                         count = 1
                         price_table[item]['price'] = offer_value
 
@@ -112,5 +114,6 @@ def checkout(skus):
         total_price += count * price_table[item]['price']
 
     return total_price
+
 
 
