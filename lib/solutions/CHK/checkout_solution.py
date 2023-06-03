@@ -53,38 +53,38 @@ def checkout(skus):
     #     total_price += count * price_table[item]["price"]
     # return total_price
 
-    price_table = {'A': (50, [(5, 200), (3, 130)]), 'B': (30, [(2, 45)]), 'C': (20, []), 'D': (15, []),
-                   'E': (40, [(2, 0, 'B')])}
-    basket = {}
-    total_price = 0
+    def checkout(items):
+        # Pricing table and offers
+        pricing_table = {
+            'A': {'price': 50, 'offer_quantity': 3, 'offer_price': 130},
+            'B': {'price': 30, 'offer_quantity': 2, 'offer_price': 45},
+            'C': {'price': 20},
+            'D': {'price': 15}
+        }
 
-    # Count the number of occurrences of each item in the basket
-    for item in skus:
-        if item not in price_table:
-            return -1  # Return -1 for illegal input
-        basket[item] = basket.get(item, 0) + 1
+        # Count of each item
+        item_counts = {}
+        for item in items:
+            item_counts[item] = item_counts.get(item, 0) + 1
 
-    # Calculate the total price based on the price table and special offers
-    for item, count in basket.items():
-        price, special_offers = price_table[item]
-        remaining_items = count
+        # Calculate total price
+        total_price = 0
+        for item, count in item_counts.items():
+            if item not in pricing_table:
+                return -1  # Invalid item
 
-        for special_offer in special_offers:
-            special_count, special_price, free_item = special_offer
+            item_price = pricing_table[item]['price']
+            if 'offer_quantity' in pricing_table[item]:
+                offer_quantity = pricing_table[item]['offer_quantity']
+                offer_price = pricing_table[item]['offer_price']
+                quotient, remainder = divmod(count, offer_quantity)
+                total_price += quotient * offer_price + remainder * item_price
+            else:
+                total_price += count * item_price
 
-            special_offer_applicable = remaining_items // special_count
-            remaining_items %= special_count
+        return total_price
 
-            total_price += special_offer_applicable * special_price
 
-            if free_item is not None and free_item in basket:
-                free_item_count = min(basket[free_item], special_offer_applicable)
-                basket[free_item] -= free_item_count
-                remaining_items -= free_item_count
-
-        total_price += remaining_items * price
-
-    return total_price
 
 
 
