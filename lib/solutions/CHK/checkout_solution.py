@@ -34,7 +34,7 @@ def checkout(skus):
                         total_price += offer_qty * price_table[offer_value]['price']
                     else:
                         if offer_value == 'B':
-                            if count >= offer_qty * 2:
+                            if count >= offer_qty * 2 and item_counts.get(offer_value, 0) >= offer_qty:
                                 total_price += offer_qty * price_table[item]['price']
                                 count -= offer_qty * 2
                                 continue
@@ -58,6 +58,7 @@ def checkout(skus):
                     free_items[offer_item] = item_counts[offer_item] // offer_qty
 
     return total_price
+
 
 
 
