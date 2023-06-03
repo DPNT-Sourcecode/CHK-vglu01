@@ -29,11 +29,13 @@ def checkout(skus):
             offer_quantity = offer['quantity']
             if product == "E" and offer['free_item'] in item_counts:
                 free_item_count = item_counts[offer["free_item"]]
+                offer_applicable_count = min(count // offer_quantity, free_item_count)
+                item_counts[offer["free_item"]] -= offer_applicable_count
 
-                free_item_count -= count // offer_quantity
-                if free_item_count < 0:
-                    free_item_count = 0
-                item_counts[offer["free_item"]] = free_item_count
+                # free_item_count -= count // offer_quantity
+                # if free_item_count < 0:
+                #     free_item_count = 0
+                # item_counts[offer["free_item"]] = free_item_count
 
 
             if product == "B" and "offer" in price_table[product]:
