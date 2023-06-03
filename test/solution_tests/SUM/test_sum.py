@@ -14,4 +14,3 @@ class TestSum():
     def test_out_of_range_num(self):
         with pytest.raises(Exception):
             sum_solution.compute(200, 100)
-
