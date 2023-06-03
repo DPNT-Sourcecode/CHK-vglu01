@@ -36,12 +36,13 @@ def checkout(skus):
                         price_table[item]['price'] = offer_value
                     else:
                         remaining = count / offer_qty
-                        print("remaining", remaining)
-                        while remaining:
-                            print("here2", offer_qty, offer_value)
-                            total_price += offer_qty * price_table[item]['price']
-                            count -= remaining
-                            print("here3", count)
+                        print("remaining", remaining % 2)
+                        if remaining % 2 == 0:
+                            while count > offer_qty:
+                                print("here2", offer_qty, offer_value)
+                                total_price += offer_qty * price_table[item]['price']
+                                count -= remaining
+                                print("here3", count)
 
                 if offer_value in item_counts:
                     item_counts[offer_value] = 0
@@ -49,4 +50,5 @@ def checkout(skus):
         total_price += count * price_table[item]['price']
 
     return total_price
+
 
