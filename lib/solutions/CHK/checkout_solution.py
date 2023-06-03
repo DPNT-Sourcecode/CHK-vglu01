@@ -29,6 +29,7 @@ def checkout(skus):
                 offer_qty, offer_value = offer
 
                 if not isinstance(offer_value, str):
+                    remaining = count/offer_qty
                     if count == offer_qty:
                         count = 1
                         price_table[item]['price'] = offer_value
