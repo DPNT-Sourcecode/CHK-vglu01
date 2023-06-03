@@ -46,8 +46,11 @@ def checkout(skus):
                 total_price += offer_applicable_count * price_table[product]["price"]
                 item_counts[offer['free_item']] -= offer_applicable_count
 
+
     for item, count in item_counts.items():
+        print(item, count)
         total_price += count * price_table[item]["price"]
     return total_price
+
 
 
