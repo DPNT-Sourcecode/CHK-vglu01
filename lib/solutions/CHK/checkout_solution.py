@@ -29,14 +29,13 @@ def checkout(skus):
             special_offers = price_table[item]['special_offer']
             for offer in special_offers:
                 offer_qty, offer_value = offer
-
+                print(offer_value in item_counts)
                 if offer_value != item:
                     while count >= offer_qty:
                         total_price += offer_qty * price_table[item]['price']
                         count -= offer_qty
-                elif offer_value == item and offer_value in item_counts:
+                elif offer_value in item_counts:
                     print("here", item)
-
 
         total_price += count * price_table[item]['price']
         print(total_price)
@@ -55,4 +54,5 @@ def checkout(skus):
                     free_items[offer_item] = item_counts[offer_item] // offer_qty
 
     return total_price
+
 
