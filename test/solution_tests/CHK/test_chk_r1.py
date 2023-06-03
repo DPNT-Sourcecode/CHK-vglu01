@@ -9,4 +9,3 @@ class TestCheckout():
         assert checkout_solution.checkout('E') == -1
 
 
-
