@@ -33,23 +33,24 @@ def checkout(skus):
                 offer_price = offer["offer_price"]
 
                 while count >= offer_quantity:
-                    print(product, count, offer_quantity)
+                    # print(product, count, offer_quantity)
                     total_price += offer_price
                     count -= offer_quantity
-
+        item_counts[product] = count
         if "offer" in price_table[product]:
             offer = price_table[product]["offer"]
             offer_quantity = offer["quantity"]
             if product == "E" and offer["free_item"] in item_counts:
                 free_item_count = item_counts[offer["free_item"]]
                 offer_applicable_count = min(count // offer_quantity, free_item_count)
-                # total_price += offer_applicable_count * price_table[product]["price"]
-                total_price += (count - offer_applicable_count) * price_table[product]['price']
+                total_price += offer_applicable_count * price_table[product]["price"]
+                # total_price += (count - offer_applicable_count) * price_table[product]['price']
                 item_counts[offer['free_item']] -= offer_applicable_count
 
-
+    print(item_counts)
     for item, count in item_counts.items():
         total_price += count * price_table[item]["price"]
     return total_price
+
 
 
