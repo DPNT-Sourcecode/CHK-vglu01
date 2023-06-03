@@ -39,7 +39,7 @@ def checkout(skus):
                     q, r = divmod(count, offer_quantity)
                     total_price += q * offer_price
                     count = r
-                    print(total_price)
+
                 if "quantity" in offer and "free_item" in offer:
                     offer_quantity = offer["quantity"]
                     free_item = offer["free_item"]
