@@ -9,7 +9,7 @@ def checkout(skus):
         'B': {'price': 30, 'offer': [{'quantity': 2, 'price': 45}]},
         'C': {'price': 20},
         'D': {'price': 15},
-        'E': {'price': 40, 'offer': [{'quantity': 2, 'free_item': 'B'}]},
+        'E': {'price': 40, 'offer': [{'quantity': 2, 'free_item': 'B'}]}
     }
 
     item_counts = {}
@@ -37,12 +37,12 @@ def checkout(skus):
                     offer_quantity = offer["quantity"]
                     offer_price = offer["price"]
                     q, r = divmod(count, offer_quantity)
-                    total_price += q, offer_price
+                    total_price += q * offer_price
                     count = r
 
                 if "quantity" in offer and "free_item" in offer:
                     offer_quantity = offer["quantity"]
-                    free_item = offer["offer_item"]
+                    free_item = offer["free_item"]
                     free_item_count = item_counts.get(free_item, 0)
                     max_free_items = min(count // offer_quantity, free_item_count)
                     total_price += max_free_items * item_price
@@ -51,6 +51,4 @@ def checkout(skus):
         total_price += count * item_price
 
     return total_price
-
-
 
