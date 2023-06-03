@@ -21,3 +21,6 @@ class TestCheckout():
         assert checkout_solution.checkout('AAAA') == 180
         assert checkout_solution.checkout('AAAAAA') == 250
         assert checkout_solution.checkout('AAAAAAA') == 300
+        assert checkout_solution.checkout('BEBEEE') == 205
+        assert checkout_solution.checkout('ABCDEABCDE') == 295
+        assert checkout_solution.checkout('CCADDEEBBA') == 250
