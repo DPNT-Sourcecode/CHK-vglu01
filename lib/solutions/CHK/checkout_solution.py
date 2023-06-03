@@ -30,7 +30,7 @@ def checkout(skus):
 
         if "offer" in price_table[product]:
             offers = price_table[product]['offer']
-            offers.sort(key=lambda x: x.get("quantity", 0), reverse=True)
+            offers.sort(key = lambda x: x.get("quantity", 0), reverse=True)
 
             for offer in offers:
                 if "quantity" in offer and "price" in offer:
@@ -45,10 +45,11 @@ def checkout(skus):
                     free_item = offer["free_item"]
                     free_item_count = item_counts.get(free_item, 0)
                     max_free_items = min(count // offer_quantity, free_item_count)
+                    total_price += max_free_items * item_price
                     count -= max_free_items * offer_quantity
-                    # total_price += max_free_items * price_table[free_item]['price']
 
         total_price += count * item_price
 
     return total_price
+
 
