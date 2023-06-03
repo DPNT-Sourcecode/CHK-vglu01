@@ -9,6 +9,7 @@ def checkout(skus):
         'B': {'price': 30, 'offer': {'quantity': 2, 'offer_price': 45}},
         'C': {'price': 20},
         'D': {'price': 15},
+        'B': {'price': 40, 'offer': {'quantity': 2, 'offer_price': 'B'}},
     }
 
     item_counts = {}
@@ -22,6 +23,12 @@ def checkout(skus):
         else:
             item_counts[i] = 1
 
+    # for product, count in item_counts.items():
+    #     if 'offer' in price_table[product]:
+    #         offer = price_table[product]['offer']
+    #         offer_quantity = offer['quantity']
+    #         if product == "E" and offer[]
+
     total_price = 0
 
     for product, count in item_counts.items():
@@ -29,7 +36,6 @@ def checkout(skus):
             offer = price_table[product]['offer']
             offer_quantity = offer['quantity']
             offer_price = offer["offer_price"]
-
             while count >= offer_quantity:
                 total_price += offer_price
                 count -= offer_quantity
@@ -37,4 +43,5 @@ def checkout(skus):
         total_price += count * price_table[product]["price"]
 
     return total_price
+
 
