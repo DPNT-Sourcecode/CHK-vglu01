@@ -48,7 +48,6 @@ def checkout(skus):
 
 
     for item, count in item_counts.items():
-        print(item, count)
         total_price += count * price_table[item]["price"]
     return total_price
 
