@@ -47,7 +47,7 @@ def checkout(skus):
         if 'offer' in price_table[product]:
             offer = price_table[product]['offer']
             offer_quantity = offer['quantity']
-            offer_price = offer["offer_price"]
+            offer_price = offer.get("offer_price")
             while count >= offer_quantity:
                 total_price += offer_price
                 count -= offer_quantity
@@ -55,6 +55,7 @@ def checkout(skus):
         total_price += count * price_table[product]["price"]
 
     return total_price
+
 
 
 
