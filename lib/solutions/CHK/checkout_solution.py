@@ -42,7 +42,7 @@ def checkout(skus):
                     count -= offer_qty
 
         total_price += count * price_table[item]['price']
-
+        print(total_price)
 
         if item in free_items:
             free_items_count = min(count, free_items[item])
@@ -58,5 +58,6 @@ def checkout(skus):
                     free_items[offer_item] = item_counts[offer_item] // offer_qty
 
     return total_price
+
 
 
