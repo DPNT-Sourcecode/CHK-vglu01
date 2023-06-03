@@ -46,6 +46,9 @@ def checkout(skus):
 
                         if count == 0:
                             price_table[item]['price'] = 0
+                    elif remaining % 2 != 0:
+                        total_price += price_table[item]['price']
+                        count -= 1
 
                 if offer_value in item_counts:
                     item_counts[offer_value] = 0
