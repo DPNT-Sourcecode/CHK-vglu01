@@ -14,7 +14,7 @@ class TestCheckout():
 
     def test_checkout_2(self):
         # assert checkout_solution.checkout('ABCDE') == 155
-        assert checkout_solution.checkout('AAAAA') == 200
-        # assert checkout_solution.checkout('EEB') == 80
+        # assert checkout_solution.checkout('AAAAA') == 200
+        assert checkout_solution.checkout('EEB') == 80
         # assert checkout_solution.checkout('EEEB') == 120
         # assert checkout_solution.checkout('EEEEBB') == 160
