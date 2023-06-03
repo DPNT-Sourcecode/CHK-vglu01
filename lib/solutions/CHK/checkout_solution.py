@@ -13,7 +13,6 @@ def checkout(skus):
     }
 
     item_counts = {}
-    total_price = 0
 
     for i in skus:
         if i not in price_table:
@@ -24,18 +23,17 @@ def checkout(skus):
         else:
             item_counts[i] = 1
 
-
     for product, count in item_counts.items():
         if 'offer' in price_table[product]:
             offer = price_table[product]['offer']
             offer_quantity = offer['quantity']
             if product == "E" and offer['free_item'] in item_counts:
                 free_item_count = item_counts[offer["free_item"]]
+
                 free_item_count -= count // offer_quantity
                 if free_item_count < 0:
                     free_item_count = 0
                 item_counts[offer["free_item"]] = free_item_count
-
 
             if product == "B" and "offer" in price_table[product]:
                 offer = price_table[product]["offer"]
@@ -43,12 +41,9 @@ def checkout(skus):
                 if offer_quantity <= count:
                     free_item_count = count // offer_quantity
                     item_counts[product] -= free_item_count
-            elif product == "A":
-                offer_quantity = offer["quantity"]
-                offer_price = offer["price"]
 
 
-
+    total_price = 0
 
     for product, count in item_counts.items():
         if 'offer' in price_table[product]:
