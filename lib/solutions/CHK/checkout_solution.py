@@ -45,10 +45,11 @@ def checkout(skus):
                     free_item = offer["free_item"]
                     free_item_count = item_counts.get(free_item, 0)
                     max_free_items = min(count // offer_quantity, free_item_count)
-                    total_price += max_free_items * item_price
+                    # total_price += max_free_items * item_price
                     count -= max_free_items * offer_quantity
 
         total_price += count * item_price
 
     return total_price
+
 
