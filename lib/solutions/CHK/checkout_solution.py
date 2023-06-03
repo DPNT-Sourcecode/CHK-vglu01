@@ -66,32 +66,34 @@ def checkout(skus):
     total_price = 0
     free_items = {}
 
-    # Count the occurrences of each item
     for item in skus:
         if item in price_table:
             item_counts[item] = item_counts.get(item, 0) + 1
         else:
-            return -1  # Invalid item found
+            return -1
 
-    # Calculate the total price
+
     for item, count in item_counts.items():
         if 'special_offer' in price_table[item]:
             special_offers = price_table[item]['special_offer']
             for offer in special_offers:
                 offer_qty, offer_value = offer
                 while count >= offer_qty:
-                    total_price += price_table[offer_value]["price"]
+                    if type(offer_value) == str:
+                        total_price += price_table[offer_value]["price"]
+                    else:
+                        total_price += offer_value
                     count -= offer_qty
         total_price += count * price_table[item]['price']
 
-        # Update free items count
+
         if item in free_items:
             free_items_count = min(count, free_items[item])
             free_items[item] -= free_items_count
             count -= free_items_count
             total_price -= free_items_count * price_table[item]['price']
 
-        # Check if item generates free items
+
         if 'special_offer' in price_table[item]:
             for offer in price_table[item]['special_offer']:
                 offer_qty, offer_item = offer
@@ -99,4 +101,5 @@ def checkout(skus):
                     free_items[offer_item] = item_counts[offer_item] // offer_qty
 
     return total_price
+
 
