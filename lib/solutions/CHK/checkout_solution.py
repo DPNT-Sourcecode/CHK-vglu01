@@ -140,7 +140,7 @@ def checkout(skus):
 
                 if not isinstance(offer_value, str):
                     while count >= offer_qty:
-                        total_price += offer_value
+                        # total_price += offer_value
                         count -= offer_qty
 
                 if offer_value in item_counts and count >= offer_qty:
@@ -153,26 +153,26 @@ def checkout(skus):
                         #     print(item_counts)
                             item_counts[offer_value] -= 1
                         #     print(item_counts)
-                            if item_counts[offer_value] > 0:
+                        #     if item_counts[offer_value] > 0:
                         #
-                                if item_counts[offer_value] >= price_table[offer_value]["special_offer"][0][0]:
-                                    print("not here 1")
-                                    total_price -= price_table[offer_value]["price"]
-                                else:
-                                    print("coming here")
-                                    print(total_price)
-                                    total_price += price_table[offer_value]["price"]
-                                    print(total_price)
-                                    total_price -= price_table[offer_value]["special_offer"][0][1]
-                                    print(total_price)
-                            else:
-                                print("not here 2")
-                                total_price -= price_table[offer_value]["price"]
-                                print(total_price)
+                            #     if item_counts[offer_value] >= price_table[offer_value]["special_offer"][0][0]:
+                            #         print("not here 1")
+                            #         total_price -= price_table[offer_value]["price"]
+                            #     else:
+                            #         print("coming here")
+                            #         print(total_price)
+                            #         total_price += price_table[offer_value]["price"]
+                            #         print(total_price)
+                            #         total_price -= price_table[offer_value]["special_offer"][0][1]
+                            #         print(total_price)
+                            # else:
+                            #     print("not here 2")
+                            #     total_price -= price_table[offer_value]["price"]
+                            #     print(total_price)
                         #
-                        elif item == offer_value and count_offer > offer_qty:
+                        # elif item == offer_value and count_offer > offer_qty:
                         #     print("nor here 3")
-                            total_price -= price_table[offer_value]["price"]
+                        #     total_price -= price_table[offer_value]["price"]
 
                         count_offer -= offer_qty
                         print(item_counts)
@@ -180,5 +180,6 @@ def checkout(skus):
         total_price += count * price_table[item]['price']
 
     return total_price
+
 
 
