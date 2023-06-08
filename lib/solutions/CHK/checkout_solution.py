@@ -194,6 +194,6 @@ def checkout(skus):
         # total_price += count * price_table[item]['price']
 
     for i in item_counts:
-        total_price += price_table[i]['price']
+        total_price += item_counts[i]
 
     return total_price
