@@ -140,8 +140,12 @@ def checkout(skus):
 
                 if not isinstance(offer_value, str):
                     while count >= offer_qty:
-                        # total_price += offer_value
+                        print("here")
+                        print(count, offer_qty)
+                        total_price += offer_value
                         count -= offer_qty
+
+                        print(total_price, count)
 
                 if offer_value in item_counts and count >= offer_qty:
 
@@ -160,6 +164,7 @@ def checkout(skus):
                                 if item_counts[offer_value] >= price_table[offer_value]["special_offer"][0][0]:
                                     print("here 2")
                                     total_price -= price_table[offer_value]["price"]
+                                    print(total_price)
                                 else:
                                     print("here 3")
                                     print(item_counts[offer_value], price_table[offer_value]["special_offer"][0][0])
@@ -167,13 +172,13 @@ def checkout(skus):
                                     total_price += price_table[offer_value]["price"]
                             #         print(total_price)
                                     total_price -= price_table[offer_value]["special_offer"][0][1]
-                            #         print(total_price)
+                                    print(total_price)
                             else:
                                 print("here 4")
                                 print(item_counts, offer_value)
 
                                 total_price -= price_table[offer_value]["price"]
-                            #     print(total_price)
+                                print(total_price)
                         #
                         elif item == offer_value and count_offer > offer_qty:
                             print("here 5")
@@ -188,6 +193,7 @@ def checkout(skus):
         total_price += count * price_table[item]['price']
 
     return total_price
+
 
 
 
