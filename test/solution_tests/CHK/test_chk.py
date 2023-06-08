@@ -28,5 +28,5 @@ class TestCheckout():
         # assert checkout_solution.checkout('ABCDECBAABCABBAAAEEAA') == 665
         # assert checkout_solution.checkout('ABCDEFF') == 175
         # assert checkout_solution.checkout('FFF') == 20
-        # assert checkout_solution.checkout('FFFF') == 30
-        assert checkout_solution.checkout('FFFFFF') == 40
+        assert checkout_solution.checkout('FFFF') == 30
+        # assert checkout_solution.checkout('FFFFFF') == 40
