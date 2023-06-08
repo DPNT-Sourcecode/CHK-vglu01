@@ -185,7 +185,3 @@ def checkout(skus):
         total_price += count * price_table[item]['price']
 
     return total_price
-
-
-
-
