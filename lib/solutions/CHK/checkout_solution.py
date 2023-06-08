@@ -23,6 +23,7 @@ def checkout(skus):
         else:
             return -1
 
+    print(item_counts)
     for item, count in item_counts.items():
         if 'special_offer' in price_table[item]:
             special_offers = price_table[item]['special_offer']
