@@ -11,7 +11,8 @@ def checkout(skus):
         'B': {'price': 30, 'special_offer': [(2, 45)]},
         'C': {'price': 20},
         'D': {'price': 15},
-        'E': {'price': 40, 'special_offer': [(2, 'B')]}
+        'E': {'price': 40, 'special_offer': [(2, 'B')]},
+        'F': {'price': 10, 'special_offer': [(2, 'F')]}
     }
 
     item_counts = {}
