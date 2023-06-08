@@ -208,7 +208,8 @@ def checkout(skus):
                         print("here 4")
                         print(item_counts, offer_value)
                         print(total_price)
-                        total_price -= price_table[offer_value]["price"]
+                        # total_price -= price_table[offer_value]["price"]
+                        total_price = 0
                         print(total_price)
 
         print("here 6")
