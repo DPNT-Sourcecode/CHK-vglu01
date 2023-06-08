@@ -26,6 +26,7 @@ def checkout(skus):
     for item, count in item_counts.items():
         if 'special_offer' in price_table[item]:
             special_offers = price_table[item]['special_offer']
+            special_offers = sorted(special_offers, reverse=True)
             for offer in special_offers:
                 offer_qty, offer_value = offer
 
@@ -35,16 +36,20 @@ def checkout(skus):
                         count -= offer_qty
 
                 if offer_value in item_counts and count >= offer_qty:
-                    count_offer = count
 
+                    count_offer = count
                     while count_offer >= offer_qty:
                         item_counts[offer_value] -= 1
 
                         if item_counts[offer_value] > 0:
                             total_price += price_table[offer_value]["price"]
-                            
+                            total_price -= price_table[offer_value][special_offers][0][1]
+                        else:
+                            total_price -= price_table[offer_value]["price"]
 
+                        count_offer -= offer_qty
 
         total_price += count * price_table[item]['price']
 
     return total_price
+
