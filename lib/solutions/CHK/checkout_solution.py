@@ -30,31 +30,19 @@ def checkout(skus):
                 offer_qty, offer_value = offer
 
                 if not isinstance(offer_value, str):
-
-
-                    remaining = count / offer_qty
-
-                    if remaining == 1:
-
-                        count = 1
-                        price_table[item]['price'] = offer_value
-
-                    elif remaining % 2 == 0:
-
-                        while count != 0:
-                            total_price += offer_value
-                            count -= offer_qty
-
-                        if count == 0:
-                            price_table[item]['price'] = 0
-                    elif remaining % 2 != 0 and count > offer_qty:
-
+                    while count >= offer_qty:
                         total_price += offer_value
                         count -= offer_qty
 
+                if offer_value in item_counts and count >= offer_qty:
+                    count_offer = count
 
-                if offer_value in item_counts:
-                    item_counts[offer_value] = 0
+                    while count_offer >= offer_qty:
+                        item_counts[offer_value] -= 1
+
+                        if item_counts[offer_value] > 0:
+                            total_price += price_table[offer_value]["price"]
+                            
 
 
         total_price += count * price_table[item]['price']
