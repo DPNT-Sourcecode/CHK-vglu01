@@ -108,8 +108,8 @@ def checkout(skus):
         'N': {'price': 40, 'special_offer': [(3, 'M')]},
         'O': {'price': 10},
         'P': {'price': 50, 'special_offer': [(5, 200)]},
-        'Q': {'price': 30, 'special_offer': [(3, 80)]},
-        'R': {'price': 50, 'special_offer': [(3, 'Q')]},
+            'Q': {'price': 30, 'special_offer': [(3, 80)]},
+            'R': {'price': 50, 'special_offer': [(3, 'Q')]},
         'S': {'price': 30},
         'T': {'price': 20},
         'U': {'price': 40, 'special_offer': [(3, 'U')]},
@@ -145,14 +145,14 @@ def checkout(skus):
                         total_price += offer_value
                         count -= offer_qty
 
-                print(item_counts, total_price)
+                        print(item_counts, offer_value)
 
                 if offer_value in item_counts and count >= offer_qty:
 
                     count_offer = count
                     while count_offer >= offer_qty:
                         print("back here")
-                        if item != offer_value and item_counts[offer_value] >= 1:
+                        if item != offer_value:
 
                             item_counts[offer_value] -= 1
 
@@ -176,9 +176,9 @@ def checkout(skus):
                                 print("here 4")
                                 print(item_counts, offer_value)
 
-                                total_price -= item_counts[offer_value] * price_table[offer_value]["price"]
+                                total_price -= price_table[offer_value]["price"]
                                 print(total_price)
-
+                        #
                         elif item == offer_value and count_offer > offer_qty:
                             print("here 5")
                             item_counts[offer_value] -= 1
