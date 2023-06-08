@@ -190,5 +190,6 @@ def checkout(skus):
         print("here 6")
         print(item, count, price_table[item]['price'], total_price)
         total_price += count * price_table[item]['price']
+        print("total_price", total_price)
 
     return total_price
