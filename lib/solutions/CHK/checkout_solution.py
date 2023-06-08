@@ -207,7 +207,7 @@ def checkout(skus):
                     else:
                         print("here 4")
                         print(item_counts, offer_value)
-
+                        print(total_price)
                         total_price -= price_table[offer_value]["price"]
                         print(total_price)
 
@@ -217,4 +217,5 @@ def checkout(skus):
         print("total_price", total_price)
 
     return total_price
+
 
