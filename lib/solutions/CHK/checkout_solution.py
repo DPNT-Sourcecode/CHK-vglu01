@@ -198,15 +198,18 @@ def checkout(skus):
                         print("here 6")
                         print(item_counts, offer_value, total_price)
 
-                        if item_counts[offer_value] >= price_table[offer_value]["special_offer"][0][0]:
+                        if item_counts[offer_value] > price_table[offer_value]["special_offer"][0][0]:
                             print("here 7")
                             total_price -= price_table[offer_value]["price"]
-                        if item_counts[offer_value] < price_table[offer_value]["special_offer"][0][0]:
+                        elif item_counts[offer_value] < price_table[offer_value]["special_offer"][0][0]:
                             print("here 8")
                             total_price += price_table[offer_value]["price"]
                             total_price -= price_table[offer_value]["special_offer"][0][1]
+                        else:
+                            print("here 9")
 
-        print("here 9")
+
+        print("here 10")
         print(item, count, price_table[item]['price'], total_price)
         total_price += count * price_table[item]['price']
         print("total_price", total_price)

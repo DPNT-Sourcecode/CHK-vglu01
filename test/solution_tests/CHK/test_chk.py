@@ -20,9 +20,9 @@ class TestCheckout():
         # assert checkout_solution.checkout('BEBEEE') == 160
         # assert checkout_solution.checkout('ABCDEABCDE') == 280
         # assert checkout_solution.checkout('CCADDEEBBA') == 280
-        # assert checkout_solution.checkout('AAAAAEEBAAABB') == 455
+        assert checkout_solution.checkout('AAAAAEEBAAABB') == 455
         # assert checkout_solution.checkout('ABCDECBAABCABBAAAEEAA') == 665
-        assert checkout_solution.checkout('ABCDEFF') == 175
+        # assert checkout_solution.checkout('ABCDEFF') == 175
         # assert checkout_solution.checkout('FFF') == 20
         # assert checkout_solution.checkout('FFFF') == 30
         # assert checkout_solution.checkout('FFFFFF') == 40
