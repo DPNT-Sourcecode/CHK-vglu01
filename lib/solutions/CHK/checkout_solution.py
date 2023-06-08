@@ -49,7 +49,7 @@ def checkout(skus):
                             total_price -= price_table[offer_value]["price"]
 
                         count_offer -= offer_qty
-
+                        
         total_price += count * price_table[item]['price']
         print("total_price", total_price)
     return total_price
