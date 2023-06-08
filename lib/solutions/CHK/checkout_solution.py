@@ -69,12 +69,14 @@ def checkout(skus):
     item_counts = {}
     total_price = 0
     skus = sorted(skus)
+
     for item in skus:
         if item in price_table:
             item_counts[item] = item_counts.get(item, 0) + 1
         else:
             return -1
 
+    print(item_counts)
     for item, count in item_counts.items():
         if 'special_offer' in price_table[item]:
             special_offers = price_table[item]['special_offer']
@@ -112,4 +114,5 @@ def checkout(skus):
 
 
     return total_price
+
 
