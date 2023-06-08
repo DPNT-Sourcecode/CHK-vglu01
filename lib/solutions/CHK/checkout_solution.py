@@ -139,6 +139,7 @@ def checkout(skus):
                 offer_qty, offer_value = offer
 
                 if not isinstance(offer_value, str):
+                    print("price offer")
                     while count >= offer_qty:
                         print("here")
                         print(count, offer_qty)
@@ -151,7 +152,7 @@ def checkout(skus):
 
                     count_offer = count
                     while count_offer >= offer_qty:
-                        print("back here")
+                        print("free item offer")
                         if item != offer_value:
 
                             item_counts[offer_value] -= 1
