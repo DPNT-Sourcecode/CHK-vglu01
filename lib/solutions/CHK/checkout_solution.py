@@ -157,6 +157,7 @@ def checkout(skus):
                         if item != offer_value:
                             print("item != offer_value")
                             item_counts[offer_value] -= 1
+                            total_price -= price_table[offer_value]["price"]
 
                             # if item_counts[offer_value] > 0: #check if there is any items left after offers
                             #     print("here 1")
@@ -232,6 +233,7 @@ def checkout(skus):
         print("total_price", total_price)
 
     return total_price
+
 
 
 
