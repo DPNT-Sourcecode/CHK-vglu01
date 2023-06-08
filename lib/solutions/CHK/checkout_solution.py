@@ -53,6 +53,7 @@ def checkout(skus):
                             else:
                                 total_price -= price_table[offer_value]["price"]
                         elif item == offer_value and count > offer_qty:
+                            print(item, count, offer_qty)
                             total_price -= price_table[offer_value]["price"]
 
                         count_offer -= offer_qty
