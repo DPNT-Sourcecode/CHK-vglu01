@@ -142,7 +142,7 @@ def checkout(skus):
                     while count >= offer_qty:
                         print("here")
                         print(count, offer_qty)
-                        # total_price += offer_value
+                        total_price += offer_value
                         count -= offer_qty
 
                         print(total_price, count)
@@ -190,6 +190,9 @@ def checkout(skus):
                         # print(item_counts)
         print("here 6")
         print(item, count, price_table[item]['price'], total_price)
-        total_price += count * price_table[item]['price']
+        # total_price += count * price_table[item]['price']
+
+    for i in item_counts:
+        total_price += item_counts[i] * price_table[i]['price']
 
     return total_price
