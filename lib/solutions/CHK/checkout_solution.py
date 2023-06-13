@@ -161,19 +161,19 @@ def checkout(skus):
 
                         count_offer -= offer_qty
 
-                    if item_counts[offer_value] == 0:
+                    if item_counts[offer_value] == 0 and "special_offer" in price_table[offer_value] :
                         print("here 5")
                         print(item_counts, offer_value)
                         print(total_price)
-                        # total_price = 0
+                        total_price = 0
                         # total_price -= price_table[offer_value]["price"]
 
-                        if "special_offer" in price_table[offer_value]:
-                            print("lalalala")
-                            print(offer_value)
-                            total_price -= price_table[offer_value]["special_offer"][0][1]
-                        else:
-                            total_price -= price_table[offer_value]["price"]
+                        # if "special_offer" in price_table[offer_value]:
+                        #     print("lalalala")
+                        #     print(offer_value)
+                        #     total_price -= price_table[offer_value]["special_offer"][0][1]
+                        # else:
+                        #     total_price -= price_table[offer_value]["price"]
 
 
                         print(total_price)
