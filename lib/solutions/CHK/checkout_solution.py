@@ -149,7 +149,7 @@ def checkout(skus):
                     count_offer = count
                     while count_offer >= offer_qty:
                         print("free item offer")
-                        print("count_offer:", count_offer, "offer_quantity:", offer_qty)
+                        print("item:", item, "count_offer:", count_offer, "offer_quantity:", offer_qty)
                         if item != offer_value:
                             print("item != offer_value")
                             item_counts[offer_value] -= 1
