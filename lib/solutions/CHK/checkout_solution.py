@@ -156,13 +156,18 @@ def checkout(skus):
                 print(item, count, offer_qty, offer_value)
                 if not isinstance(offer_value, str):
                     print("price offer")
-                    while count >= offer_qty:
-                        print("here1")
-                        print(count, offer_qty)
-                        total_price += offer_value
-                        count -= offer_qty
 
-                        print(item_counts, offer_value)
+                    if offer_qty == 3 and item in ["S", "T", "X", "Y", "Z"]:
+                        print("any 3 calculations here")
+                        print(item_counts)
+                    else:
+                        while count >= offer_qty:
+                            print("here1")
+                            print(count, offer_qty)
+                            total_price += offer_value
+                            count -= offer_qty
+
+                            print(item_counts, offer_value)
 
                 elif offer_value in item_counts and count >= offer_qty:
 
