@@ -164,7 +164,7 @@ def checkout(skus):
 
                         print(item_counts, offer_value)
 
-                if offer_value in item_counts and count >= offer_qty:
+                elif offer_value in item_counts and count >= offer_qty:
 
                     count_offer = count
                     while count_offer >= offer_qty:
@@ -219,5 +219,3 @@ def checkout(skus):
         print("total_price", total_price)
 
     return total_price
-
-
