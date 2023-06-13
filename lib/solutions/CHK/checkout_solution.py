@@ -142,7 +142,7 @@ def checkout(skus):
     print(item_counts)
 
     for item, count in item_counts.items():
-
+        count_special_three = 0
         if 'special_offer' in price_table[item]:
             special_offers = sorted(price_table[item]['special_offer'], reverse=True)
 
@@ -204,7 +204,10 @@ def checkout(skus):
                         print(total_price)
         elif "special_offer_any_three" in price_table[item]:
             print("here 8")
-            # print(item)
+            count_special_three += 1
+
+            if count_special_three == 3:
+                total_price -= item_counts[offer_value] * price_table[offer_value]["price"]
             # item_counts[offer_value] -= 1
 
 
@@ -215,4 +218,5 @@ def checkout(skus):
         print("total_price", total_price)
 
     return total_price
+
 
