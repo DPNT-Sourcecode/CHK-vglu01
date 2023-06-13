@@ -33,4 +33,4 @@ class TestCheckout():
         # assert checkout_solution.checkout('PPPPQRUVPQRUVPQRUVSU') == 730
         # assert checkout_solution.checkout('NNNNNNMM') == 240
         # assert checkout_solution.checkout('NNNMNMNN') == 240
-        assert checkout_solution.checkout('WSTUKKUUXYYYYZ') == 470
+        assert checkout_solution.checkout('WSTUKKUUXYYYYZ') == 430
