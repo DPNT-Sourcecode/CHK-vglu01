@@ -138,7 +138,7 @@ def checkout(skus):
     copy_item_counts = item_counts.copy()
 
     print(item_counts)
-    print(copy_item_counts)
+
     for item, count in item_counts.items():
         if 'special_offer' in price_table[item]:
             special_offers = sorted(price_table[item]['special_offer'], reverse=True)
