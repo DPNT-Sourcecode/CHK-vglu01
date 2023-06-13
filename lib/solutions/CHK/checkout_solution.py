@@ -17,7 +17,7 @@ def checkout(skus):
         'H': {'price': 10, 'special_offer': [(5, 45), (10, 80)]},
         'I': {'price': 35},
         'J': {'price': 60},
-        'K': {'price': 80, 'special_offer': [(2, 150)]},
+        'K': {'price': 70, 'special_offer': [(2, 120)]},
         'L': {'price': 90},
         'M': {'price': 15},
         'N': {'price': 40, 'special_offer': [(3, 'M')]},
@@ -25,12 +25,12 @@ def checkout(skus):
         'P': {'price': 50, 'special_offer': [(5, 200)]},
         'Q': {'price': 30, 'special_offer': [(3, 80)]},
         'R': {'price': 50, 'special_offer': [(3, 'Q')]},
-        'S': {'price': 30},
-        'T': {'price': 20},
+        'S': {'price': 20, 'special_offer': [(3, 45)]},
+        'T': {'price': 20, 'special_offer': [(3, 45)]},
         'U': {'price': 40, 'special_offer': [(3, 'U')]},
         'V': {'price': 50, 'special_offer': [(2, 90), (3, 130)]},
         'W': {'price': 20},
-        'X': {'price': 90},
+        'X': {'price': 17},
         'Y': {'price': 10},
         'Z': {'price': 50}
 
@@ -93,4 +93,5 @@ def checkout(skus):
         total_price += count * price_table[item]['price']
 
     return total_price
+
 
