@@ -207,7 +207,8 @@ def checkout(skus):
             count_special_three += 1
 
             if count_special_three == 3:
-                total_price -= item_counts[offer_value] * price_table[offer_value]["price"]
+                if item in ['S', 'T', 'X', 'Y', 'Z']:
+                    total_price -= item_counts[offer_value] * price_table[offer_value]["price"]
             # item_counts[offer_value] -= 1
 
 
@@ -218,5 +219,6 @@ def checkout(skus):
         print("total_price", total_price)
 
     return total_price
+
 
 
