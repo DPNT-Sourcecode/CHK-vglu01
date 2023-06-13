@@ -170,7 +170,7 @@ def checkout(skus):
                         final_price = total_price - price_table[offer_value]["price"]
                         if final_price != 0:
                             print("lalalala")
-                            print(price_table[offer_value]["special_offer"][0][1])
+                            print(offer_value)
                             total_price -= price_table[offer_value]["special_offer"][0][1]
                         else:
                             total_price -= price_table[offer_value]["price"]
