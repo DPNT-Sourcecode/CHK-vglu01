@@ -117,14 +117,19 @@ def checkout(skus):
         'P': {'price': 50, 'special_offer': [(5, 200)]},
         'Q': {'price': 30, 'special_offer': [(3, 80)]},
         'R': {'price': 50, 'special_offer': [(3, 'Q')]},
-        'S': {'price': 20, 'special_offer_any_three': [(3, 45)]},
-        'T': {'price': 20, 'special_offer_any_three': [(3, 45)]},
+        # 'S': {'price': 20, 'special_offer_any_three': [(3, 45)]},
+        # 'T': {'price': 20, 'special_offer_any_three': [(3, 45)]},
+        'S': {'price': 20, 'special_offer': [(3, 45)]},
+        'T': {'price': 20, 'special_offer': [(3, 45)]},
         'U': {'price': 40, 'special_offer': [(3, 'U')]},
         'V': {'price': 50, 'special_offer': [(2, 90), (3, 130)]},
         'W': {'price': 20},
-        'X': {'price': 70, 'special_offer_any_three': [(3, 45)]},
-        'Y': {'price': 20, 'special_offer_any_three': [(3, 45)]},
-        'Z': {'price': 20, 'special_offer_any_three': [(3, 45)]}
+        # 'X': {'price': 70, 'special_offer_any_three': [(3, 45)]},
+        # 'Y': {'price': 20, 'special_offer_any_three': [(3, 45)]},
+        # 'Z': {'price': 20, 'special_offer_any_three': [(3, 45)]}
+        'X': {'price': 70, 'special_offer': [(3, 45)]},
+        'Y': {'price': 20, 'special_offer': [(3, 45)]},
+        'Z': {'price': 20, 'special_offer': [(3, 45)]}
 
     }
 
@@ -147,11 +152,12 @@ def checkout(skus):
 
             for offer in special_offers:
                 offer_qty, offer_value = offer
-
+                print("here")
+                print(item, count, offer_qty, offer_value)
                 if not isinstance(offer_value, str):
                     print("price offer")
                     while count >= offer_qty:
-                        print("here")
+                        print("here1")
                         print(count, offer_qty)
                         total_price += offer_value
                         count -= offer_qty
@@ -201,8 +207,10 @@ def checkout(skus):
                         total_price += item_counts[offer_value] * price_table[offer_value]["price"]
                         total_price -= price_table[offer_value]["special_offer"][0][1]
                         print(total_price)
-        elif "special_offer_any_three" in price_table[item]:
-            total_price -=
+        # elif "special_offer_any_three" in price_table[item]:
+        #     print()
+            # item_counts[offer_value] -= 1
+
 
 
         print("here 8")
@@ -211,4 +219,5 @@ def checkout(skus):
         print("total_price", total_price)
 
     return total_price
+
 
