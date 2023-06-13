@@ -104,8 +104,8 @@ def checkout(skus):
         'N': {'price': 40, 'special_offer': [(3, 'M')]},
         'O': {'price': 10},
         'P': {'price': 50, 'special_offer': [(5, 200)]},
-            'Q': {'price': 30, 'special_offer': [(3, 80)]},
-            'R': {'price': 50, 'special_offer': [(3, 'Q')]},
+        'Q': {'price': 30, 'special_offer': [(3, 80)]},
+        'R': {'price': 50, 'special_offer': [(3, 'Q')]},
         'S': {'price': 30},
         'T': {'price': 20},
         'U': {'price': 40, 'special_offer': [(3, 'U')]},
@@ -184,8 +184,8 @@ def checkout(skus):
                     elif item_counts[offer_value] < price_table[offer_value]["special_offer"][0][0]:
                         print("here 7")
                         print(total_price)
-                        print(item_counts, offer_value)
-                        total_price += price_table[offer_value]["price"]
+                        print(item_counts, item_counts[offer_value], offer_value)
+                        total_price += item_counts[offer_value] * price_table[offer_value]["price"]
                         total_price -= price_table[offer_value]["special_offer"][0][1]
                         print(total_price)
 
