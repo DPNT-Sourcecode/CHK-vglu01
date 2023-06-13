@@ -165,7 +165,8 @@ def checkout(skus):
                         print("here 5")
                         print(item_counts, offer_value)
                         print(total_price)
-                        total_price = 0
+                        total_price -= price_table[offer_value]["price"]
+                        # total_price = 0
                         print(total_price)
                     elif item_counts[offer_value] >= price_table[offer_value]["special_offer"][0][0] and item != offer_value:
                         print("here 6")
