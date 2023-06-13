@@ -136,9 +136,9 @@ def checkout(skus):
         'U': {'price': 40, 'special_offer': [(3, 'U')]},
         'V': {'price': 50, 'special_offer': [(2, 90), (3, 130)]},
         'W': {'price': 20},
-        'X': {'price': 70, 'special_offer_any_three': [(3, 45)]},
+        'X': {'price': 17, 'special_offer_any_three': [(3, 45)]},
         'Y': {'price': 20, 'special_offer_any_three': [(3, 45)]},
-        'Z': {'price': 20, 'special_offer_any_three': [(3, 45)]}
+        'Z': {'price': 21, 'special_offer_any_three': [(3, 45)]}
 
     }
 
@@ -240,4 +240,5 @@ def checkout(skus):
         print("total_price", total_price)
 
     return total_price
+
 
