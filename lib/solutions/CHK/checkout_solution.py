@@ -182,7 +182,8 @@ def checkout(skus):
                             total_price = 0
                         else:
                             print("doesn't have special offer")
-                            total_price -= item_counts[offer_value] * price_table[offer_value]["price"]
+                            total_price -= price_table[offer_value]["price"]
+                            total_price = 0
 
 
                             print(item_counts[offer_value])
