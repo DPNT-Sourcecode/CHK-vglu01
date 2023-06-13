@@ -153,6 +153,7 @@ def checkout(skus):
                         if item != offer_value:
                             print("item != offer_value")
                             item_counts[offer_value] -= 1
+                            total_price -= price_table[offer_value]["special_offer"][0][1]
 
                         elif item == offer_value and count_offer > offer_qty:
                             print("here 4")
