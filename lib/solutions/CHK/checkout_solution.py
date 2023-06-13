@@ -205,6 +205,7 @@ def checkout(skus):
         elif "special_offer_any_three" in price_table[item]:
             print("here 8")
             count_special_three += 1
+            item_counts[offer_value] -= 1
 
             if count_special_three == 3:
                 if item in ['S', 'T', 'X', 'Y', 'Z']:
