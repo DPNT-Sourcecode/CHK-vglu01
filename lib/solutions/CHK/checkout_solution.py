@@ -181,4 +181,3 @@ def checkout(skus):
         print("total_price", total_price)
 
     return total_price
-
