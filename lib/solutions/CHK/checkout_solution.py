@@ -224,24 +224,27 @@ def checkout(skus):
             special_three_qty = price_table[item]["special_offer_any_three"][0][0]
 
             if count_special_three == 3:
-                # total_price = 0
+                print("here9")
+                total_price = 0
                 print(item_counts)
                 total_price += price_table[item]["special_offer_any_three"][0][1]
                 count_special_three = 0
                 continue
             elif count >= special_three_qty:
+                print("here10")
                 total_price += price_table[item]["special_offer_any_three"][0][1]
                 count -= 3
 
 
 
 
-        print("here 9")
+        print("here 11")
         print(item, count, price_table[item]['price'], total_price)
         total_price += count * price_table[item]['price']
         print("total_price", total_price)
 
     return total_price
+
 
 
 
