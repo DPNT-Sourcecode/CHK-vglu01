@@ -270,10 +270,11 @@ def checkout(skus):
                 running_offer_price = count_special_three * price_table[item]["price"]
                 count = count_special_three
 
-            print(prices)
-            # while count != 0:
-            #     price_table[item]['price'] += min_price
-            #     count -= 1
+            print(min(prices))
+            while count != 0:
+                total_price += min(prices)
+                prices = prices.remove(min(prices))
+                count -= 1
 
             price_table[item]['price'] = min_price
 
@@ -283,3 +284,4 @@ def checkout(skus):
         print("total_price", total_price)
 
     return total_price
+
