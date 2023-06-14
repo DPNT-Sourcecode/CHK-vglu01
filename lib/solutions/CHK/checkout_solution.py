@@ -274,7 +274,7 @@ def checkout(skus):
 
 
 
-            if running_offer_price > 1:
+            if running_offer_price > 1 and len(prices) > 1:
                 prices = sorted(prices)
                 print("heree 11:", prices)
                 print(item, count_special_three, count)
