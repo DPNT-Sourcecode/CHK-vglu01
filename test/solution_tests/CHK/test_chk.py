@@ -33,7 +33,8 @@ class TestCheckout():
         # assert checkout_solution.checkout('PPPPQRUVPQRUVPQRUVSU') == 730
         # assert checkout_solution.checkout('NNNNNNMM') == 240
         # assert checkout_solution.checkout('NNNMNMNN') == 240
-        # assert checkout_solution.checkout('WSTUKKUUXYYYYZ') == 431
+        assert checkout_solution.checkout('WSTUKKUUXYYYYZ') == 431
         # assert checkout_solution.checkout('X') == 17
         # assert checkout_solution.checkout('Z') == 21
-        assert checkout_solution.checkout('STX') == 45
+        # assert checkout_solution.checkout('STX') == 45
+
