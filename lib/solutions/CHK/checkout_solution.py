@@ -271,6 +271,7 @@ def checkout(skus):
                 running_offer_price = count_special_three * price_table[item]["price"]
                 count = count_special_three
 
+            prices = sorted(prices)
             print("heree 11:", prices)
             print(item)
             for i in range(count_special_three):
