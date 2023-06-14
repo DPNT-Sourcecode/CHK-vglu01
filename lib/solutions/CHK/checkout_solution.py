@@ -269,10 +269,10 @@ def checkout(skus):
 
             p = 0
             while count != 0:
-                p += min_price
+                price_table[item]['price'] += min_price
                 count -= 1
 
-            price_table[item]['price'] = p
+            # price_table[item]['price'] = min_price
 
         print("here 11")
         print(item, count, price_table[item]['price'], total_price)
@@ -280,4 +280,3 @@ def checkout(skus):
         print("total_price", total_price)
 
     return total_price
-
