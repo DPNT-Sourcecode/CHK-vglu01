@@ -273,7 +273,7 @@ def checkout(skus):
 
             prices = sorted(prices)
             print("heree 11:", prices)
-            print(item)
+            print(item, count_special_three, count)
             for i in range(count_special_three):
                 print(i)
                 total_price += prices[i]
@@ -281,7 +281,7 @@ def checkout(skus):
 
             print(total_price)
 
-            # price_table[item]['price'] = min_price
+            price_table[item]['price'] = min_price
 
         print("here 12")
         print(item, count, price_table[item]['price'], total_price)
@@ -289,3 +289,4 @@ def checkout(skus):
         print("total_price", total_price)
 
     return total_price
+
