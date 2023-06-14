@@ -272,22 +272,26 @@ def checkout(skus):
                 running_offer_price = count_special_three * price_table[item]["price"]
                 count = count_special_three
 
-            prices = sorted(prices)
-            print("heree 11:", prices)
-            # print(item, count_special_three, count)
-            # for i in range(count_special_three):
-            #     print(i)
-            #     total_price += prices[i]
-            #     count -= 1
-            #
-            # print(total_price)
 
-            price_table[item]['price'] = min_price
 
-        print("here 12")
+            if running_offer_price > 1:
+                prices = sorted(prices)
+                print("heree 11:", prices)
+                print(item, count_special_three, count)
+                for i in range(count_special_three):
+                    print(i)
+                    total_price += prices[i]
+                    count -= 1
+
+                print(total_price)
+
+            else:
+                print("here 12")
+                price_table[item]['price'] = min_price
+
+        print("here 13")
         print(item, count, price_table[item]['price'], total_price)
         total_price += count * price_table[item]['price']
         print("total_price", total_price)
 
     return total_price
-
