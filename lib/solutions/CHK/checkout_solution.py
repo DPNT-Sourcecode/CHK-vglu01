@@ -230,7 +230,8 @@ def checkout(skus):
             print("here 8")
             count_special_three += count
             running_offer_price += count * price_table[item]["price"]
-            print("count_special_three:", count_special_three, "running_offer_price", running_offer_price)
+            min_price = price_table[item]["price"]
+            print("count_special_three:", count_special_three, "running_offer_price", running_offer_price, "min_price:", min_price)
 
             if count_special_three == 3:
                 print("here 9")
@@ -240,8 +241,7 @@ def checkout(skus):
                 total_price -= running_offer_price
                 print(total_price)
                 total_price += price_table[item]["special_offer_any_three"][0][1]
-                print("total_price after addition of special price", price_table[item]["special_offer_any_three"][0][1])
-                print(total_price)
+                print("total_price after addition of special price", total_price)
                 count_special_three = 0
                 running_offer_price = 0
                 continue
@@ -264,6 +264,7 @@ def checkout(skus):
         print("total_price", total_price)
 
     return total_price
+
 
 
 
