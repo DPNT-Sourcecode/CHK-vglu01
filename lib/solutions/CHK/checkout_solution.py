@@ -90,6 +90,7 @@ def checkout(skus):
                     elif item_counts[offer_value] < price_table[offer_value]["special_offer"][0][0]:
                         total_price += item_counts[offer_value] * price_table[offer_value]["price"]
                         total_price -= price_table[offer_value]["special_offer"][0][1]
+
         elif "special_offer_any_three" in price_table[item]:
             count_special_three += count
             running_offer_price += count * price_table[item]["price"]
@@ -101,14 +102,20 @@ def checkout(skus):
                 count_special_three = 0
                 running_offer_price = 0
                 continue
-            elif count > 3:
+            elif count_special_three > 3:
+                running_offer_price -= count * price_table[item]["price"]
+                total_price -= running_offer_price
                 total_price += price_table[item]["special_offer_any_three"][0][1]
-                count -= 3
+
+                count_special_three -= 3
+                running_offer_price = count_special_three * price_table[item]["price"]
+                count = count_special_three
 
 
         total_price += count * price_table[item]['price']
 
     return total_price
+
 
 
 
