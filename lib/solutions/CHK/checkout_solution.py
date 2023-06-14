@@ -239,7 +239,7 @@ def checkout(skus):
                 print(total_price)
                 count_special_three = 0
                 running_offer_price = 0
-                continue
+                # continue
             elif count > 3:
                 print("here 10")
                 print(count_special_three)
@@ -252,6 +252,7 @@ def checkout(skus):
         print("total_price", total_price)
 
     return total_price
+
 
 
 
