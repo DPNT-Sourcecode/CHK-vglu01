@@ -37,6 +37,7 @@ class TestCheckout():
         # assert checkout_solution.checkout('X') == 17
         # assert checkout_solution.checkout('Z') == 21
         # assert checkout_solution.checkout('STX') == 45
-        assert checkout_solution.checkout('STXSTX') == 90
+        # assert checkout_solution.checkout('STXSTX') == 90
         # assert checkout_solution.checkout('SSS') == 45
-        # assert checkout_solution.checkout('SSSZ') == 65
+        assert checkout_solution.checkout('SSSZ') == 65
+
