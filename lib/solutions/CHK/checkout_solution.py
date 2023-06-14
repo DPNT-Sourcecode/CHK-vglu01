@@ -146,7 +146,7 @@ def checkout(skus):
         'W': {'price': 20},
         'X': {'price': 17, 'special_offer_any_three': [(3, 45)]},
         'Y': {'price': 20, 'special_offer_any_three': [(3, 45)]},
-        'Z': {'price': 20, 'special_offer_any_three': [(3, 45)]}
+        'Z': {'price': 21, 'special_offer_any_three': [(3, 45)]}
 
     }
 
@@ -264,6 +264,7 @@ def checkout(skus):
         print("total_price", total_price)
 
     return total_price
+
 
 
 
