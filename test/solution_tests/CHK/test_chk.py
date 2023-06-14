@@ -41,7 +41,8 @@ class TestCheckout():
         # assert checkout_solution.checkout('SSSZ') == 65
         # assert checkout_solution.checkout('ZZZS') == 65
         # assert checkout_solution.checkout('STXZ') == 62
-        # assert checkout_solution.checkout('ABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZ') == 1602
-        # assert checkout_solution.checkout('LGCKAQXFOSKZGIWHNRNDITVBUUEOZXPYAVFDEPTBMQLYJRSMJCWH') == 1602
+        assert checkout_solution.checkout('ABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZ') == 1602
+        assert checkout_solution.checkout('LGCKAQXFOSKZGIWHNRNDITVBUUEOZXPYAVFDEPTBMQLYJRSMJCWH') == 1602
         assert checkout_solution.checkout('CXYZYZC') == 122
+
 
