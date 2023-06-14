@@ -248,7 +248,8 @@ def checkout(skus):
                 print(total_price)
                 total_price += price_table[item]["special_offer_any_three"][0][1]
                 print("total_price after addition of special price", price_table[item]["special_offer_any_three"][0][1])
-                count_special_three -= count
+                # count_special_three -= count
+                count_special_three -= 3
                 count -= 3
 
         print("here 11")
@@ -257,6 +258,7 @@ def checkout(skus):
         print("total_price", total_price)
 
     return total_price
+
 
 
 
