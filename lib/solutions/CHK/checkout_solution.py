@@ -49,6 +49,7 @@ def checkout(skus):
     count_special_three = 0
     running_offer_price = 0
     min_price = 100
+    prices = []
     for item, count in item_counts.items():
         if 'special_offer' in price_table[item]:
             special_offers = sorted(price_table[item]['special_offer'], reverse=True)
@@ -96,6 +97,8 @@ def checkout(skus):
             count_special_three += count
             running_offer_price += count * price_table[item]["price"]
 
+            prices.append(price_table[item]["price"])
+
             if price_table[item]["price"] < min_price:
                 min_price = price_table[item]["price"]
 
@@ -114,6 +117,10 @@ def checkout(skus):
                 count_special_three -= 3
                 running_offer_price = count_special_three * price_table[item]["price"]
                 count = count_special_three
+
+            if count_special_three > 1 and len(prices) > 1:
+                prices = sorted(prices)
+                running_offer_price 
 
             price_table[item]["price"] = min_price
 
