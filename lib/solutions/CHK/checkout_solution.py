@@ -120,10 +120,18 @@ def checkout(skus):
 
             if count_special_three > 1 and len(prices) > 1:
                 prices = sorted(prices)
-                running_offer_price 
+                running_offer_price = 0
 
-            price_table[item]["price"] = min_price
+                for i in range(count_special_three):
+                    total_price += prices[i]
+                    running_offer_price += prices[i]
+                    count -= 1
+
+            elif count_special_three == 1:
+
+                price_table[item]["price"] = min_price
 
         total_price += count * price_table[item]['price']
 
     return total_price
+
